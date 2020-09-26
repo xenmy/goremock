@@ -32,4 +32,4 @@ build:
 
 .PHONY: openapi
 openapi:
-	${DOCKER} run -v $(PWD):/local $(OPENAPI_GENERATOR) generate -i $(OPENAPI_ROOT_FILE) -g $(OPENAPI_SERVER_TYPE) -o $(OPENAPI_DIST_DIR)
+	${DOCKER} run -v $(PWD):/local $(OPENAPI_GENERATOR) generate -i $(OPENAPI_ROOT_FILE) -g $(OPENAPI_SERVER_TYPE) -o local/$(OPENAPI_DIST_DIR)
