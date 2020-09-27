@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  description: An API moch for *oreore server.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  title: goremock
+  version: 0.1.0
+servers:
+- url: /
+paths:
+  /v1/users:
+    get:
+      description: Return all users
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schema/user'
+                type: array
+          description: A list of users
+  /v1/user/{accountName}:
+    get:
+      description: Return {accountName} user's description
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/user'
+          description: A {accountName} user's object
+components:
+  schemas:
+    user:
+      example:
+        accountName: accountName
+        name: name
+        id: 0
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        accountName:
+          type: string
+      type: object
